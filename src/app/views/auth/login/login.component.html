@@ -1,1 +1,37 @@
-<p>login works!</p>
+
+<div class="container-fluid m-0 p-0">
+  <div class="row m-0 p-0">
+    <div class="col-sm main-form-container m-0 p-0 d-flex justify-content-center align-items-center">
+
+      <div class="form-container">
+
+        <div class="form-logo-container">
+          <img src="assets/img/logo/vox-blue-logo.png" alt="main-logo"/>
+          <h1>LOGIN</h1>
+        </div>
+
+        <form [formGroup]="loginForm" class="auth-form">
+
+          <div class="form-group">
+            <label for="email">Email*</label>
+            <input class="form-control" type="email" name="email" id="email" formControlName="email" />
+            <small *ngIf="utilsService.isFormControlValid('email', loginForm)" class="form-text text-muted">Email inválido</small>
+          </div>
+
+          <div class="form-group">
+            <label for="senha">Senha*</label>
+            <input class="form-control" type="password" name="senha" id="senha" formControlName="senha" />
+            <small *ngIf="utilsService.isFormControlValid('senha', loginForm)" class="form-text text-muted">Senha inválida</small>
+          </div>
+
+        </form>
+
+        <div class="redirect-container">
+            <p>Não possui conta? <a (click)="router.navigate(['auth/cadastro'])">CADASTRO</a></p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

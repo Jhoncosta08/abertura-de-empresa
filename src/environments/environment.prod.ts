@@ -1,4 +1,4 @@
-const firebaseConfig = {
+export const firebaseConfig = {
   production: true,
   apiKey: "AIzaSyBFnXrrcvuXksNiewGIhXS0zQTuzjIJt8Q",
   authDomain: "abertura-de-empresa-app.firebaseapp.com",

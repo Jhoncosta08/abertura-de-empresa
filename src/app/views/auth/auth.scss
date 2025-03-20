@@ -1,0 +1,70 @@
+@use 'custom-theme' as *;
+
+.main-form-container {
+  width: 100%;
+  height: 100vh;
+  background-color: $primary-four;
+  margin: 0;
+  padding: 0;
+}
+
+.form-container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 3px 6px $primary-dark;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  min-height: 600px;
+}
+
+.auth-form {
+  text-align: start;
+  width: 100%;
+  padding: 0 4rem;
+  margin: 1rem 0;
+}
+
+.form-logo-container {
+  width: 100%;
+
+  & img {
+    max-width: 100px;
+  }
+
+  & h1 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: $primary-one;
+  }
+
+}
+
+.redirect-container {
+
+  & p {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: $primary-dark;
+  }
+
+  & a {
+    cursor: pointer;
+    color: $primary-one;
+    font-weight: 600;
+    margin-left: 0.2rem;
+  }
+
+  & a:hover {
+    color: $primary-two;
+  }
+
+}

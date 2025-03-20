@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-esqueceu-senha',
   imports: [],
   templateUrl: './esqueceu-senha.component.html',
-  styleUrl: './esqueceu-senha.component.scss'
+  styleUrl: '../auth.scss'
 })
 export class EsqueceuSenhaComponent {
 

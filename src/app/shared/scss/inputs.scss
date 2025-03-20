@@ -1,0 +1,28 @@
+@use 'custom-theme' as *;
+
+.form-group {
+  margin: 1rem 0;
+
+  & input {
+    border: 1px solid $primary-one;
+    border-radius: 3px;
+    box-shadow: none;
+    width: 100%;
+    color: $primary-one;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+  }
+
+  & input:focus, input:active, input:checked {
+    border: 2px solid $primary-one;
+    box-shadow: none;
+  }
+
+  & input::placeholder {
+    font-weight: 400;
+    opacity: 0.5;
+    color: $dark;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+  }
+}

@@ -1,1 +1,55 @@
-<p>cadastro works!</p>
+
+<div class="container-fluid m-0 p-0">
+  <div class="row m-0 p-0">
+    <div class="col-sm main-form-container m-0 p-0 d-flex justify-content-center align-items-center">
+
+      <div class="form-container">
+
+        <div class="form-logo-container">
+          <img src="assets/img/logo/vox-blue-logo.png" alt="main-logo"/>
+          <h1>CADASTRO</h1>
+        </div>
+
+        <form [formGroup]="cadastroForm" class="auth-form">
+
+          <div class="form-group">
+            <label for="name">Nome*</label>
+            <input class="form-control" type="text" name="name" id="name" formControlName="nome" />
+            <small *ngIf="utilsService.isFormControlValid('nome', cadastroForm)" class="form-text text-muted">Nome inválido</small>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email*</label>
+            <input class="form-control" type="email" name="email" id="email" formControlName="email" />
+            <small *ngIf="utilsService.isFormControlValid('email', cadastroForm)" class="form-text text-muted">Email inválido</small>
+          </div>
+
+          <div class="form-group">
+            <label for="idade">Idade*</label>
+            <input class="form-control" type="number" name="idade" id="idade" formControlName="idade" />
+            <small *ngIf="utilsService.isFormControlValid('idade', cadastroForm)" class="form-text text-muted">Idade inválida</small>
+          </div>
+
+          <div class="form-group">
+            <label for="dataNascimento">Data de nascimento*</label>
+            <input class="form-control" type="text" name="dataNascimento" id="dataNascimento" formControlName="dataNascimento" placeholder="dd/mm/yyyy"/>
+            <small *ngIf="utilsService.isFormControlValid('dataNascimento', cadastroForm)" class="form-text text-muted">Data de nascimento inválida</small>
+          </div>
+
+          <div class="form-group">
+            <label for="cpf">CPF*</label>
+            <input class="form-control" type="text" name="cpf" id="cpf" formControlName="cpf" placeholder="000.000.000-00"/>
+            <small *ngIf="utilsService.isFormControlValid('cpf', cadastroForm)" class="form-text text-muted">CPF inválido</small>
+          </div>
+
+        </form>
+
+        <div class="redirect-container">
+          <p>Ja possui conta? <a (click)="router.navigate(['auth/login'])">LOGIN</a></p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

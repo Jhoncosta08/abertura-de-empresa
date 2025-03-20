@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable, Subject} from 'rxjs';
-import {ToastEvent} from '../interfaces/toast-event.interface';
-import {EventTypes} from '../enums/event-types.enum';
+import {ToastEvent} from '../../interfaces/toast-event.interface';
+import {EventTypes} from '../../enums/event-types.enum';
 
 @Injectable({
   providedIn: 'root'
