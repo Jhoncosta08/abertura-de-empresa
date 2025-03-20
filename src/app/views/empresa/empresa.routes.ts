@@ -3,17 +3,17 @@ import {Routes} from '@angular/router';
 export const empresaRoutes: Routes = [
   {
     path: 'abrir',
-    title: 'Empresa - Abrir',
+    title: 'Abrir Empresa',
     loadComponent: () => import('./abrir-editar-empresa/abrir-editar-empresa.component').then(c => c.AbrirEditarEmpresaComponent)
   },
   {
     path: 'editar/:id',
-    title: 'Empresa - Editar',
+    title: 'Editar Empresa',
     loadComponent: () => import('./abrir-editar-empresa/abrir-editar-empresa.component').then(c => c.AbrirEditarEmpresaComponent)
   },
   {
     path: 'detalhes/:id',
-    title: 'Empresa - Detalhes',
+    title: 'Detalhes Da Empresa',
     loadComponent: () => import('./abrir-editar-empresa/abrir-editar-empresa.component').then(c => c.AbrirEditarEmpresaComponent)
   }
 ];

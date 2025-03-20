@@ -16,6 +16,10 @@ export const routes: Routes = [
     loadChildren: () => import('./views/empresa/empresa.routes').then(m => m.empresaRoutes)
   },
   {
+    path: 'auth',
+    loadChildren: () => import('./views/auth/auth.routes').then(m => m.authRoutes)
+  },
+  {
     path: '**',
     redirectTo: 'dashboard',
     pathMatch: 'full',
