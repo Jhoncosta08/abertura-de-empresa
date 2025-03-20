@@ -17,6 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src"
+              ]
+            },
             "outputPath": "dist/abertura-de-empresa",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -26,28 +31,36 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
+              "optimization": true,
+              "aot": true,
+              "sourceMap": false,
+              "extractLicenses": true,
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "8kB",
+                  "maximumError": "16kB"
                 }
               ],
               "outputHashing": "all"
