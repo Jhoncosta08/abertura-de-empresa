@@ -1,0 +1,31 @@
+@use 'custom-theme' as *;
+
+.simple-button {
+  border: none;
+  box-shadow: none;
+  background-color: $primary-three;
+  width: 100%;
+  height: 30px;
+  padding: 10px 15px;
+  opacity: 0.8;
+  color: $primary-one;
+  margin: 1rem auto;
+}
+
+.isActive, .simple-button:hover {
+  opacity: 1;
+  background-color:  $primary-one;
+  color: $primary-three;
+}
+
+.outline-btn {
+  background-color: transparent;
+  border: 1px solid $primary-one;
+  color: $primary-one;
+}
+
+.isActive, .outline-btn:hover {
+  background-color: $primary-dark;
+  color: $primary-dark;
+  opacity: 1;
+}

@@ -25,4 +25,19 @@
     letter-spacing: 2px;
     font-size: 0.8rem;
   }
+
+  & label {
+    font-weight: 600;
+    color: $primary-one;
+    letter-spacing: 1px;
+    font-size: 0.7rem;
+    margin-bottom: 5px;
+  }
+
+  & small {
+    font-weight: 600;
+    color: $primary-danger;
+    font-size: 0.7rem;
+  }
+
 }

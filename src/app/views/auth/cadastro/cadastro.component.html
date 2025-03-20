@@ -10,36 +10,53 @@
           <h1>CADASTRO</h1>
         </div>
 
-        <form [formGroup]="cadastroForm" class="auth-form">
+        <form (ngSubmit)="submitForm($event)" [formGroup]="cadastroForm" class="auth-form">
 
           <div class="form-group">
             <label for="name">Nome*</label>
             <input class="form-control" type="text" name="name" id="name" formControlName="nome" />
-            <small *ngIf="utilsService.isFormControlValid('nome', cadastroForm)" class="form-text text-muted">Nome inválido</small>
+            <small *ngIf="utilsService.isFormControlValid('nome', cadastroForm)" class="form-text">Nome inválido</small>
           </div>
 
           <div class="form-group">
             <label for="email">Email*</label>
             <input class="form-control" type="email" name="email" id="email" formControlName="email" />
-            <small *ngIf="utilsService.isFormControlValid('email', cadastroForm)" class="form-text text-muted">Email inválido</small>
+            <small *ngIf="utilsService.isFormControlValid('email', cadastroForm)" class="form-text">Email inválido</small>
           </div>
 
           <div class="form-group">
             <label for="idade">Idade*</label>
             <input class="form-control" type="number" name="idade" id="idade" formControlName="idade" />
-            <small *ngIf="utilsService.isFormControlValid('idade', cadastroForm)" class="form-text text-muted">Idade inválida</small>
+            <small *ngIf="utilsService.isFormControlValid('idade', cadastroForm)" class="form-text">Idade inválida</small>
           </div>
 
           <div class="form-group">
             <label for="dataNascimento">Data de nascimento*</label>
             <input class="form-control" type="text" name="dataNascimento" id="dataNascimento" formControlName="dataNascimento" placeholder="dd/mm/yyyy"/>
-            <small *ngIf="utilsService.isFormControlValid('dataNascimento', cadastroForm)" class="form-text text-muted">Data de nascimento inválida</small>
+            <small *ngIf="utilsService.isFormControlValid('dataNascimento', cadastroForm)" class="form-text">Data de nascimento inválida</small>
           </div>
 
           <div class="form-group">
             <label for="cpf">CPF*</label>
             <input class="form-control" type="text" name="cpf" id="cpf" formControlName="cpf" placeholder="000.000.000-00"/>
-            <small *ngIf="utilsService.isFormControlValid('cpf', cadastroForm)" class="form-text text-muted">CPF inválido</small>
+            <small *ngIf="utilsService.isFormControlValid('cpf', cadastroForm)" class="form-text">CPF inválido</small>
+          </div>
+
+          <div class="form-group">
+            <label for="senha">Senha*</label>
+            <input class="form-control" type="password" name="senha" id="senha" formControlName="senha" />
+            <small *ngIf="utilsService.isFormControlValid('senha', cadastroForm)" class="form-text">Senha inválida ou inferior a 6 caracteres</small>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmarSenha">Confirmar senha*</label>
+            <input class="form-control" type="password" name="confirmarSenha" id="confirmarSenha" formControlName="confirmarSenha" />
+            <small *ngIf="utilsService.isFormControlValid('confirmarSenha', cadastroForm)" class="form-text">Senha inválida ou inferior a 6 caracteres</small>
+          </div>
+
+          <div class="form-group">
+            <app-simple-spinner [showSpinner]="showSubmitSpinner"></app-simple-spinner>
+            <app-simple-button *ngIf="!showSubmitSpinner" [buttonText]="'ENTRAR'" [type]="'submit'"></app-simple-button>
           </div>
 
         </form>

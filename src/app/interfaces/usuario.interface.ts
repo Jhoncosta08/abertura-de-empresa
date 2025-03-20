@@ -2,9 +2,8 @@ export interface UsuarioInterface {
   nome: string;
   email: string;
   idade: number;
-  dataCriacao: Date;
-  dataNascimento: Date;
+  dataCriacao: string;
+  dataNascimento: string;
   cpf: string;
   uid?: string;
-  senha?: string;
 }
