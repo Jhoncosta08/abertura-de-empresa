@@ -1,0 +1,17 @@
+@use 'custom-theme' as *;
+
+.success {
+  background-color: $primary-success;
+}
+
+.info {
+  background-color: $primary-info;
+}
+
+.warning {
+  background-color: $primary-warn;
+}
+
+.error {
+  background-color: $primary-danger;
+}
