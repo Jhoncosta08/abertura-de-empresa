@@ -2,6 +2,11 @@ import {Routes} from '@angular/router';
 
 export const empresaRoutes: Routes = [
   {
+    path: '',
+    redirectTo: 'abrir',
+    pathMatch: 'full'
+  },
+  {
     path: 'abrir',
     title: 'Abrir Empresa',
     loadComponent: () => import('./abrir-editar-empresa/abrir-editar-empresa.component').then(c => c.AbrirEditarEmpresaComponent)
