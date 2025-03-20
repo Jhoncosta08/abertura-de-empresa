@@ -1,0 +1,21 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Regras para a coleção de usuários
+    match /users/{userId} {
+      // Permitir a criação de documentos na coleção "users" sem autenticação
+      allow create: if true;
+
+      // Permitir leitura, atualização e exclusão apenas para o usuário autenticado
+      allow read, update, delete: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Regras para outras coleções
+    match /{document=**} {
+      // Permitir leitura, criação, atualização e exclusão apenas para usuários autenticados
+      allow read, create, update, delete: if request.auth != null;
+    }
+  }
+}
