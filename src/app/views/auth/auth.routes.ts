@@ -16,9 +16,4 @@ export const authRoutes: Routes = [
     title: 'Cadastro',
     loadComponent: () => import('./cadastro/cadastro.component').then(c => c.CadastroComponent)
   },
-  {
-    path: 'esqueceu-senha',
-    title: 'Esqueceu Senha',
-    loadComponent: () => import('./esqueceu-senha/esqueceu-senha.component').then(c => c.EsqueceuSenhaComponent)
-  },
 ]

@@ -3,6 +3,7 @@
   <!-- Toaster -->
   <app-toaster></app-toaster>
 
+  <app-nav *ngIf="!this.router.url.includes('/auth') && this.router.url !== '/'"></app-nav>
   <router-outlet></router-outlet>
 
 </main>

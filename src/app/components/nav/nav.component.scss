@@ -1,0 +1,115 @@
+@use 'custom-theme' as *;
+
+.navbar-container {
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-nav {
+  justify-content: center;
+}
+
+.navbar {
+  box-shadow: -2px 3px 6px $primary-dark;
+  background-color: $primary-one;
+  padding: 1rem;
+  min-height: 80px;
+}
+
+.navbar-nav a {
+  color: $primary-three;
+  margin-right: 1.25rem;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  transition: 0.4s ease-out;
+}
+
+.navbar-nav a:hover {
+  color: $primary-dark;
+  transition: 0.4s ease-out;
+}
+
+.active-link span {
+  color: $primary-dark;
+}
+
+.nav-title-name {
+  margin-right: 3rem;
+  border-bottom: 2px solid $primary-dark;
+}
+
+.navbar-brand {
+
+  & row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  & img {
+    width: auto;
+    height: 40px;
+    margin-right: 1rem;
+  }
+
+  & span {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: $primary-three;
+  }
+}
+
+.logout-icon {
+  width: auto;
+  height: 1.5rem;
+  cursor: pointer;
+  color: $primary-three;
+}
+
+.logout-icon:hover {
+  color: $primary-dark;
+}
+
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler:hover,
+.navbar-toggler:target,
+button:focus,
+button:active,
+button:hover,
+button:target,
+input:focus,
+input:active,
+input:hover,
+input:target,
+textarea:focus,
+textarea:active,
+textarea:hover,
+textarea:target,{
+  outline: 0;
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+}
+
+
+@media only screen and (max-width: 575px) {
+  .navbar-brand, .nav-collapse-container {
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  .navbar-nav {
+    text-align: start;
+    margin: 0;
+    padding: 0;
+
+    & a {
+      margin: 0.8rem 0;
+    }
+  }
+}
