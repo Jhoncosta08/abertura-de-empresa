@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {SolicitacaoInterface} from '../../interfaces/solicitacao.interfacec';
+import {SolicitacaoInterface} from '../../interfaces/empresa/solicitacao.interfacec';
 import {AuthService} from '../auth/auth.service';
 import {
   Firestore,
@@ -83,6 +83,10 @@ export class EmpresaService {
   }
 
   async deleteEmpresa(id: string): Promise<void> {
+    if (!id || id === '') {
+      this.toast.showToast('Erro', `Identificador da empresa não encontrado.`, 'error');
+      return;
+    }
     try {
       const empresaDocRef = doc(this.firestore, `empresas/${id}`);
       await deleteDoc(empresaDocRef);

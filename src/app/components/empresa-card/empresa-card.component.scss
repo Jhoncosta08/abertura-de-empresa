@@ -1,0 +1,77 @@
+@use 'custom-theme' as *;
+
+p, span {
+  margin: 0;
+  padding: 0;
+}
+
+.empresa-card {
+  background-color: #fff;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 3px 6px $primary-dark;
+
+  & p {
+    color: $primary-one;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+
+  & span {
+    color: $primary-dark;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+}
+
+.empresa-card-icons-container {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & svg {
+    margin-right: 1rem;
+    width: auto;
+    height: 2rem;
+    border: 1px solid $primary-one;
+    padding: 0.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: $primary-one;
+    transition: 0.4s ease-out;
+  }
+
+  & svg:hover {
+    transition: 0.4s ease-out;
+    color: $primary-two;
+    border-color: $primary-two;
+  }
+
+  & .trash-icon:hover {
+    color: $primary-danger;
+    border-color: $primary-danger;
+  }
+
+  .trash-icon-spinner {
+    color: $primary-danger;
+    margin: 0.5rem 0;
+  }
+
+}
+
+@media only screen and (max-width: 575px) {
+  .empresa-card-icons-container {
+    margin-top: 2rem;
+  }
+
+  .details-container {
+    margin: 0.5rem 0;
+  }
+}

@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {NgIf} from '@angular/common';
 import {UtilsService} from '../../../services/utils/utils.service';
 import {SimpleButtonComponent} from '../../../components/simple-button/simple-button.component';
-import {UsuarioInterface} from '../../../interfaces/usuario.interface';
+import {UsuarioInterface} from '../../../interfaces/usuario/usuario.interface';
 import {ToastService} from '../../../services/toast/toast.service';
 import {AuthService} from '../../../services/auth/auth.service';
 import {SimpleSpinnerComponent} from '../../../components/simple-spinner/simple-spinner.component';

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {SolicitacaoInterface} from '../../../interfaces/solicitacao.interfacec';
+import {SolicitacaoInterface} from '../../../interfaces/empresa/solicitacao.interfacec';
 import {NgIf} from '@angular/common';
 import {SimpleButtonComponent} from '../../../components/simple-button/simple-button.component';
 import {SimpleSpinnerComponent} from '../../../components/simple-spinner/simple-spinner.component';

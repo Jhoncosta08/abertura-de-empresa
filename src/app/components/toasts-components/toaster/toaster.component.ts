@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {ToastService} from '../../../services/toast/toast.service';
-import {ToastEvent} from '../../../interfaces/toast-event.interface';
+import {ToastEvent} from '../../../interfaces/toast/toast-event.interface';
 import {ToastComponent} from '../toast/toast.component';
 
 @Component({

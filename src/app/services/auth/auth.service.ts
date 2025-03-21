@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut} from '@angular/fire/auth';
 import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
-import { UsuarioInterface } from '../../interfaces/usuario.interface';
+import { UsuarioInterface } from '../../interfaces/usuario/usuario.interface';
 import { ToastService } from '../toast/toast.service';
 import { Router } from '@angular/router';
 

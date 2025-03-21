@@ -1,1 +1,27 @@
-<p>Dashboard</p>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm spinner-and-notfound-container">
+      <app-simple-spinner [showSpinner]="showPageSpinner"></app-simple-spinner>
+      <p *ngIf="!showPageSpinner && (!empresas || empresas && empresas.length <= 0)">Nenhuma empresa encontrada</p>
+    </div>
+  </div>
+
+  <div *ngIf="!showPageSpinner && (empresas && empresas.length > 0)" class="row empresa-page-container">
+
+    <div class="col-sm-12">
+      <h1>EMPRESAS</h1>
+    </div>
+
+    <div class="col-sm-12">
+      <app-empresa-card
+        *ngFor="let empresa of empresas"
+        (onClick)="getEmpresaCardEvent($event)"
+        [empresa]="empresa"
+        [showTrashIconSpinner]="showTrashSpinner">
+      </app-empresa-card>
+    </div>
+
+  </div>
+</div>
