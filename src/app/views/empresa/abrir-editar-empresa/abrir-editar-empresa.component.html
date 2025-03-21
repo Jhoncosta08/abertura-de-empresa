@@ -79,13 +79,13 @@
 
               <div class="form-group">
                 <label for="nu_cpf">CPF*</label>
-                <input class="form-control" type="text" name="nu_cpf" id="nu_cpf" formControlName="nu_cpf" />
+                <input class="form-control" type="text" name="nu_cpf" id="nu_cpf" formControlName="nu_cpf" placeholder="000.000.000-00"/>
                 <small *ngIf="utilsService.isFormControlValid('solicitante.nu_cpf', empresaForm)" class="form-text">CPF inválido</small>
               </div>
 
               <div class="form-group">
                 <label for="date_nascimento">Nascimento*</label>
-                <input class="form-control" type="text" name="date_nascimento" id="date_nascimento" formControlName="date_nascimento" />
+                <input class="form-control" type="text" name="date_nascimento" id="date_nascimento" formControlName="date_nascimento" placeholder="dd/mm/yyyy" />
                 <small *ngIf="utilsService.isFormControlValid('solicitante.date_nascimento', empresaForm)" class="form-text">Data inválida</small>
               </div>
 
