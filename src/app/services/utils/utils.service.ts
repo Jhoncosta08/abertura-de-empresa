@@ -7,7 +7,8 @@ import {FormGroup} from '@angular/forms';
 export class UtilsService {
 
   isFormControlValid(formControlName: string, formGroup: FormGroup): boolean | undefined {
-    return formGroup.get(formControlName)?.invalid && formGroup.get(formControlName)?.touched;
+    const formValue = formGroup.get(formControlName);
+    return formValue?.invalid && formValue?.touched;
   }
 
 }

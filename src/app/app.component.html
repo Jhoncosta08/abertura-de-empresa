@@ -1,4 +1,4 @@
-<main  class="container-fluid m-0 p-0">
+<div class="container-fluid m-0 p-0" style="min-height: 100vh">
 
   <!-- Toaster -->
   <app-toaster></app-toaster>
@@ -6,4 +6,4 @@
   <app-nav *ngIf="!this.router.url.includes('/auth') && this.router.url !== '/'"></app-nav>
   <router-outlet></router-outlet>
 
-</main>
+</div>

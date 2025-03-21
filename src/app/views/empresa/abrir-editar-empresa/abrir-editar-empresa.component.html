@@ -1,1 +1,105 @@
-<p>abrir-empresa works!</p>
+
+<div class="container empresa-container">
+
+  <app-simple-spinner class="m-2" [showSpinner]="showPageSpinner"></app-simple-spinner>
+
+  <div *ngIf="empresaForm && !showPageSpinner" class="row empresa-form-row">
+    <div class="col-sm-12">
+
+      <div class="row">
+        <div class="col-sm">
+          <h1>{{ pageParamId ? 'Editar' : 'Abrir' }} empresa</h1>
+        </div>
+      </div>
+
+      <form (ngSubmit)="submitForm($event)" [formGroup]="empresaForm" class="empresa-form">
+
+        <div class="row">
+
+          <div class="col-sm">
+            <div class="group-container" formGroupName="empresa">
+              <div class="form-group">
+                <label for="ds_nome_fantasia">Nome fantasia*</label>
+                <input class="form-control" type="text" name="ds_nome_fantasia" id="ds_nome_fantasia" formControlName="ds_nome_fantasia" />
+                <small *ngIf="utilsService.isFormControlValid('empresa.ds_nome_fantasia', empresaForm)" class="form-text">Nome inválido</small>
+              </div>
+
+              <div class="seconday-group-container" formGroupName="endereco">
+                <div class="form-group">
+                  <label for="co_cep">CEP*</label>
+                  <input class="form-control" type="text" name="co_cep" id="co_cep" formControlName="co_cep" />
+                  <small *ngIf="utilsService.isFormControlValid('empresa.endereco.co_cep', empresaForm)" class="form-text">CEP inválido</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="ds_logradouro">Logradouro*</label>
+                  <input class="form-control" type="text" name="ds_logradouro" id="ds_logradouro" formControlName="ds_logradouro" />
+                  <small *ngIf="utilsService.isFormControlValid('empresa.endereco.ds_logradouro', empresaForm)" class="form-text">Logradouro inválido</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="co_numero">N°*</label>
+                  <input class="form-control" type="text" name="co_numero" id="co_numero" formControlName="co_numero" />
+                  <small *ngIf="utilsService.isFormControlValid('empresa.endereco.co_numero', empresaForm)" class="form-text">N° inválido</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="ds_complemento">Complemento</label>
+                  <input class="form-control" type="text" name="ds_complemento" id="ds_complemento" formControlName="ds_complemento" />
+                </div>
+
+                <div class="form-group">
+                  <label for="ds_bairro">Bairro*</label>
+                  <input class="form-control" type="text" name="ds_bairro" id="ds_bairro" formControlName="ds_bairro" />
+                  <small *ngIf="utilsService.isFormControlValid('empresa.endereco.ds_bairro', empresaForm)" class="form-text">bairro inválido</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="ds_municipio">Bairro*</label>
+                  <input class="form-control" type="text" name="ds_municipio" id="ds_municipio" formControlName="ds_municipio" />
+                  <small *ngIf="utilsService.isFormControlValid('empresa.endereco.ds_municipio', empresaForm)" class="form-text">Município inválido</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="ds_uf">UF*</label>
+                  <input class="form-control" type="text" name="ds_uf" id="ds_uf" formControlName="ds_uf" />
+                  <small *ngIf="utilsService.isFormControlValid('empresa.endereco.ds_uf', empresaForm)" class="form-text">UF inválido</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm">
+            <div class="group-container" formGroupName="solicitante">
+              <div class="form-group">
+                <label for="ds_responsavel">Responsável*</label>
+                <input class="form-control" type="text" name="ds_responsavel" id="ds_responsavel" formControlName="ds_responsavel" />
+                <small *ngIf="utilsService.isFormControlValid('solicitante.ds_responsavel', empresaForm)" class="form-text">Nome inválido</small>
+              </div>
+
+              <div class="form-group">
+                <label for="nu_cpf">CPF*</label>
+                <input class="form-control" type="text" name="nu_cpf" id="nu_cpf" formControlName="nu_cpf" />
+                <small *ngIf="utilsService.isFormControlValid('solicitante.nu_cpf', empresaForm)" class="form-text">CPF inválido</small>
+              </div>
+
+              <div class="form-group">
+                <label for="date_nascimento">Nascimento*</label>
+                <input class="form-control" type="text" name="date_nascimento" id="date_nascimento" formControlName="date_nascimento" />
+                <small *ngIf="utilsService.isFormControlValid('solicitante.date_nascimento', empresaForm)" class="form-text">Data inválida</small>
+              </div>
+
+              <div class="form-btn-group">
+                <app-simple-spinner [showSpinner]="showSubmitSpinner"></app-simple-spinner>
+                <app-simple-button *ngIf="!showSubmitSpinner" [buttonText]="pageParamId ? 'EDITAR EMPRESA' : 'ABRIR EMPRESA'" [type]="'submit'"></app-simple-button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+@use 'custom-theme' as *;
+
+.empresa-container {
+  height: auto;
+
+  & h1 {
+    font-size: 2rem;
+    color: $primary-one;
+    letter-spacing: 2px;
+  }
+
+  & .empresa-form-row {
+    height: 100%;
+  }
+}
+
+.group-container {
+  box-shadow: 0 3px 6px $primary-dark;
+  border-radius: 5px;
+  background-color: #fff;
+  margin: 2rem 0;
+  padding: 1.5rem;
+}
+
+.form-btn-group {
+  margin-top: 1.5rem;
+}
