@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, User} from '@angular/fire/auth';
+import {Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut} from '@angular/fire/auth';
 import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
 import { UsuarioInterface } from '../../interfaces/usuario.interface';
@@ -22,13 +22,6 @@ export class AuthService {
     if (storedUser) {
       this.user.next(JSON.parse(storedUser));
     }
-    onAuthStateChanged(this.auth, (firebaseUser: User | null): void => {
-      if (firebaseUser && firebaseUser.uid) {
-        void this.getFirebaseUserRef(firebaseUser.uid);
-      } else {
-        this.user.next(null);
-      }
-    });
   }
 
   async register(user: UsuarioInterface, senha: string): Promise<any> {
@@ -42,8 +35,9 @@ export class AuthService {
       if (userId) {
         const userRef = doc(this.firestore, 'users', userId);
         await setDoc(userRef, { uid: userId, ...user });
+        await this.getUserRefAndUpdateUser(userId);
+        await this.route.navigate(['/dashboard']);
         this.toast.showToast('Sucesso', `O usuário ${user.nome ?? ''} foi criado.`, 'success');
-        void this.route.navigate(['/dashboard']);
       }
     } catch (error) {
       this.toast.showToast('Erro no cadastro', 'Ocorreu um erro no cadastro.', 'error');
@@ -56,16 +50,19 @@ export class AuthService {
       return this.toast.showToast('Erro no login', 'Credenciais não encontradas', 'error');
     }
     try {
-      await signInWithEmailAndPassword(this.auth, user.email, user.senha);
+      this.user.next(null);
+      const userCredential = await signInWithEmailAndPassword(this.auth, user.email, user.senha);
+      const userId: string | undefined = userCredential.user?.uid;
+      await this.getUserRefAndUpdateUser(userId);
+      await this.route.navigate(['/dashboard']);
       this.toast.showToast('Sucesso', `Login efetuado.`, 'success');
-      void this.route.navigate(['/dashboard']);
     } catch (error) {
       this.toast.showToast('Erro no login', 'Ocorreu um erro ao tentar efetuar o login.', 'error');
       console.error('Erro no login', error);
     }
   }
 
-  async getFirebaseUserRef(userId: string): Promise<void> {
+  async getUserRefAndUpdateUser(userId: string): Promise<void> {
     try {
       const userRef = doc(this.firestore, 'users', userId);
       const docSnapshot = await getDoc(userRef);
