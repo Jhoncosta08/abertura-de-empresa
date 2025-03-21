@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from '@angular/fire/auth';
+import {Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, User} from '@angular/fire/auth';
 import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
 import { UsuarioInterface } from '../../interfaces/usuario.interface';
@@ -18,8 +18,16 @@ export class AuthService {
     private toast: ToastService,
     private route: Router
   ) {
-    onAuthStateChanged(this.auth, (user): void => {
-      void this.getFirebaseUserRef(user?.uid ?? null);
+    const storedUser: string | null = localStorage.getItem('user');
+    if (storedUser) {
+      this.user.next(JSON.parse(storedUser));
+    }
+    onAuthStateChanged(this.auth, (firebaseUser: User | null): void => {
+      if (firebaseUser && firebaseUser.uid) {
+        void this.getFirebaseUserRef(firebaseUser.uid);
+      } else {
+        this.user.next(null);
+      }
     });
   }
 
@@ -57,15 +65,13 @@ export class AuthService {
     }
   }
 
-  async getFirebaseUserRef(userId: string | null): Promise<void> {
-    if (!userId) {
-      return this.user.next(null);
-    }
+  async getFirebaseUserRef(userId: string): Promise<void> {
     try {
       const userRef = doc(this.firestore, 'users', userId);
       const docSnapshot = await getDoc(userRef);
       if (docSnapshot.exists()) {
         const user: UsuarioInterface = docSnapshot.data() as UsuarioInterface;
+        localStorage.setItem('user', JSON.stringify(user));
         this.user.next(user);
       } else {
         this.user.next(null);
@@ -75,4 +81,17 @@ export class AuthService {
       console.error('Erro ao tentar buscar o usuário', error);
     }
   }
+
+  async logout(): Promise<void> {
+    try {
+      await signOut(this.auth);
+      localStorage.clear();
+      void this.route.navigate(['/login']);
+      this.toast.showToast('Logout efetuado', 'Logout efetuado com sucesso.', 'success');
+    } catch (error) {
+      this.toast.showToast('Erro', 'Erro ao tentar sair do sistema', 'error');
+      console.error('Erro ao sair', error);
+    }
+  }
+
 }

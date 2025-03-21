@@ -54,4 +54,8 @@ export class LoginComponent {
     this.showSubmitSpinner = false;
   }
 
+  sair() {
+    this.authService.logout();
+  }
+
 }
