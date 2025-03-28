@@ -59,15 +59,6 @@
 ## Development server
 > Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Future improvements
-> - [x] Add unit tests
-> - [x] Add user page with edit option
-> - [x] Add forgot password page
-> - [x] Create a dedicated page to view company details
-> - [x] Create a registration page for applicants
-> - [x] Add input field masks
-> - [x] Add a postal code lookup library that will auto-fill text fields when registering companies
-
 ## Preview app
 ![image](https://github.com/Jhoncosta08/abertura-de-empresa/blob/master/src/assets/previews/preview-one.png)
 ![image](https://github.com/Jhoncosta08/abertura-de-empresa/blob/master/src/assets/previews/preview-two.png)
